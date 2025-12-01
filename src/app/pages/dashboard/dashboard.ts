@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [],
-  template: `
-    <h1>Welcome to the Dashboard!</h1>
-    <button (click)="logout()">Logout</button>
-  `,
-  styles: ``
+  imports: [], 
+  templateUrl: 'dashboard.html',
+  styleUrl: 'dashboard.css'
 })
 export class DashboardComponent {
   constructor(private router: Router) {}

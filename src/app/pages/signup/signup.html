@@ -1,35 +1,55 @@
-<div class="signup-container">
-  <h2>Create Account</h2>
-  
-  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-    
-    <div class="form-group">
-      <label>Full Name:</label>
-      <input type="text" formControlName="name" placeholder="Hasan Mahin">
-      <span class="error" *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">
-        Name is required (min 3 chars)
-      </span>
-    </div>
+<div class="page-wrapper">
 
-    <div class="form-group">
-      <label>Email:</label>
-      <input type="email" formControlName="email" placeholder="email@example.com">
-      <span class="error" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
-        Please enter a valid email
-      </span>
-    </div>
+    <!--Main Cointainer-->
+    <div class="form-section">
+        <div class="header">
+            <h2>Create your Account</h2>
+            <p>Join us to manage your files securely.</p>
+        </div>
+     </div>
+     <form [formGroup] = "signupForm" (ngSubmit) = "onSubmit()">
+         <!--Full Name Group-->
+         <label>Full Name</label>
+         <input type="text" placeholder="Hasan Mahin">
+         
+         <!--Email-->
+         <label>Email</label>
+         <input type="email" formControlName = "email" placeholder="yourmail@gmail.com"
+         [class.error-border] = "signupForm.get('email')?.invalid && signupForm.get('email')?.touched"
 
-    <div class="form-group">
-      <label>Password:</label>
-      <input type="password" formControlName="password" placeholder="******">
-      <span class="error" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
-        Password must be 6+ chars
-      </span>
-    </div>
+         >
+         <!--Button-->
+         <button  type="submit" class="btn-class">Send OTP</button>
+     </form>
+      <!--If have a account-->
+      <p class="switch-page">
+        already have an account?
+        <a routerLink="/home/login">Login here</a>
+      </p>
 
-    <button type="submit" [disabled]="!signupForm.valid">Register</button>
-  
-  </form>
-  
-  <p>Already have an account? <a routerLink="/login">Login here</a></p>
+      <div class="visual-section">
+            <div class="icon-container">
+                <!-- White User Icon SVG -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.5899 22C20.5899 18.13 16.7399 15 11.9999 15C7.25991 15 3.40991 18.13 3.40991 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19 8V5M22 6.5H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h3>Start your journey.</h3>
+            <p>Secure, Fast, and Reliable File Management.</p>
+        </div>
+
+         <div class="wave-bg">
+        <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="wave-grad-reg" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#d1fae5;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#22d3ee;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path fill="url(#wave-grad-reg)" fill-opacity="0.8" 
+            d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
 </div>

@@ -1,5 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { SignupComponent } from './pages/signup/signup';
+import { Login } from './pages/login/login';
+import { Home } from './pages/home/home';
+
 
 @Component({
   selector: 'app-root',
@@ -8,5 +12,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('FileManagementSystems');
+  
 }

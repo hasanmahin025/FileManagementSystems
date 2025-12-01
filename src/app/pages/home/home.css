@@ -1,0 +1,23 @@
+body{
+    margin: auto;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5faff;
+   
+
+}
+.navbar{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #4fe4f8;
+}
+.nav-links a{
+
+    margin-left: 30px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 50;
+    font-size: 16px;
+}

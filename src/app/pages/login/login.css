@@ -1,49 +1,208 @@
-.container{
 
-    width: 300px;
-    margin: 100px auto;
-    padding: 20px;
-    border: 1px solid#ccc;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,1) ;
-    font-family: Arial, Helvetica, sans-serif;
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', sans-serif;
+}
 
-}
-h2{
-    text-align: center; color: #333;
-}
-.form-group{
-    margin-bottom:15px;
-
-}
-label{
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-input{
+/* --- Page Wrapper (Centers the card) --- */
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    padding: 8px;
+    padding: 20px;
+    /* Padding for mobile edges */
     box-sizing: border-box;
 }
-.error{
-    color: red;
-    font-size: 12px;
+
+/* --- Main Card Container --- */
+.card-container {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    min-height: 550px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+    /* GRID SYSTEM: Split 50/50 */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 50% Left, 50% Right */
+
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
 
-button{
-    width:100% ;
-    padding:10px ;
-    background-color: #28a745;
-    color: white;
-    border:none ;
-    cursor:pointer ;
-    margin-top:10px;
+/* --- Left Side: Form Section Container --- */
+.form-section {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Vertically center content */
+    position: relative;
+    z-index: 2;
 }
-button:disabled{
-    background-color: #ccc;
+
+.header h2 {
+    color: #333;
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
 }
-p{
-    text-align: center;
+
+.header p {
+    color: #666;
+    margin: 0 0 30px 0;
+    font-size: 0.95rem;
+}
+
+/* --- Form Elements --- */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.9rem;
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 5px;
     margin-top: 15px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    outline: none;
+}
+
+/* --- Forgot Password --- */
+.forget-password {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.forget-password a {
+    color: #666;
+    font-size: 0.85rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.forget-password a:hover {
+    color: #10b981;
+    text-decoration: underline;
+}
+
+/* --- Login Button --- */
+.btn-class {
+    padding: 14px;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.btn-class:hover {
+    background-color: #059669;
+}
+
+/* --- Bottom Link (Register) --- */
+.switch-page {
+    text-align: center;
+    margin-top: 30px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.switch-page a {
+    color: #10b981;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.switch-page a:hover {
+    text-decoration: underline;
+}
+
+/* --- Right Side: Visual Section --- */
+.visual-section {
+    background: linear-gradient(135deg, #34d399 0%, #06b6d4 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.icon-container svg {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.visual-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.visual-section p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* --- Waves Background --- */
+.wave-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+    pointer-events: none;
+    line-height: 0;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: 1fr;
+        /* Switch to single column */
+        height: auto;
+    }
+
+    .visual-section {
+        display: none;
+    }
+
+    /* Hide visual panel on mobile */
+    .form-section {
+        padding: 30px;
+    }
 }

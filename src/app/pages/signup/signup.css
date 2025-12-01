@@ -1,31 +1,187 @@
-.signup-container {
-  width: 300px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  font-family: Arial, sans-serif;
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-h2 { text-align: center; color: #333; }
+/* --- Main Card Wrapper --- */
+.page-wrapper {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    min-height: 550px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    
 
-.form-group { margin-bottom: 15px; }
-label { display: block; margin-bottom: 5px; font-weight: bold; }
-input { width: 100%; padding: 8px; box-sizing: border-box; }
-
-.error { color: red; font-size: 12px; }
-
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header visual"
+        "form visual"
+        "link visual";
+        
+    overflow: hidden;
+    position: relative;
+    margin: 20px;
+    z-index: 1;
 }
 
-button:disabled { background-color: #ccc; }
+/* --- Left Side: Header Section --- */
+.form-section {
+    grid-area: header;
+    padding: 40px 50px 10px 50px; 
+    position: relative;
+    z-index: 2; 
+}
 
-p { text-align: center; margin-top: 15px; }
+.header h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+}
+
+.header p {
+    color: #666;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* --- Left Side: The Form --- */
+form {
+    grid-area: form;
+    padding: 10px 50px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2; 
+}
+
+label {
+    font-size: 0.9rem;
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    width: 100%;
+    box-sizing: border-box; 
+    margin-bottom: 5px;
+}
+
+input:focus {
+    border-color: #10b981; /* Mint Green Focus */
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* --- Register Button --- */
+.btn-class {
+    margin-top: 50px; 
+    padding: 14px;
+    background-color: #10b981; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.btn-class:hover {
+    background-color: #059669; /* Darker Green */
+}
+
+/* --- Left Side: Bottom Link --- */
+.switch-page {
+    grid-area: link;
+    text-align: center;
+    padding: 0 50px 40px 50px;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 0;
+    position: relative;
+    z-index: 2; 
+}
+
+.switch-page a {
+    color: #10b981;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* --- Right Side: Visual Section --- */
+.visual-section {
+    grid-area: visual; 
+    background: linear-gradient(135deg, #34d399 0%, #06b6d4 100%); /* Mint Gradient */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+    z-index: 1; 
+}
+
+.icon-container svg {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.visual-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.visual-section p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* --- Waves Background --- */
+.wave-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0; 
+    pointer-events: none; 
+    line-height: 0;
+}
+
+
+@media (max-width: 768px) {
+    .page-wrapper {
+       
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .visual-section {
+        display: none; 
+    }
+
+    .form-section, form, .switch-page {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

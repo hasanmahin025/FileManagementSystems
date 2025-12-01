@@ -1,0 +1,127 @@
+:host{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', sans-serif;
+}
+.page-wrapper{
+    background: white;
+    max-width: 900px;
+    min-height: 550px;
+    width: 100%;
+    border-radius: 20%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "header visual" "form visual";
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+    z-index: 1;
+}
+.form-section{
+    grid-area: header;
+    padding: 15px 20px 10px 50px;
+}
+form{
+
+    grid-area: form;
+    display: flex;
+    padding: 10px 50px 40px 50px;
+    flex-direction: column;
+}
+
+.header h2{
+
+    color: #333;
+    margin: 50px 25px 20px 0px;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.header p{
+    color: #333;
+    margin: 0;
+}
+label{
+    font-size: 0.9rem;
+    color: #444;
+    font-weight: 500;
+    margin-bottom:5px ;
+    margin-top: 15px;
+}
+input{
+    padding:12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    width: 100%;
+    box-sizing: border-box;
+}
+input:focus{
+
+    border-color: #10b981;
+    outline: none;
+}
+.btn-class {
+    margin-top: 30px; 
+    padding: 14px; 
+    background-color: #10b981; 
+    color: white;
+    border: none; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    width: 100%;
+}
+.btn-class:hover{
+    background-color: #059669;
+}
+.visual-section {
+    grid-area: visual; 
+    background: linear-gradient(135deg, #34d399 0%, #06b6d4 100%);
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    color: white; 
+    padding: 40px; 
+    text-align: center;
+}
+.icon-container svg {
+     width: 100px; 
+     height: 100px; 
+     margin-bottom: 20px; 
+     opacity: 0.9; 
+}
+.visual-section h3 { 
+    font-size: 1.8rem; 
+    margin-bottom: 10px; 
+}
+.wave-bg { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 50%; 
+    z-index: 0; 
+    pointer-events: none; 
+    line-height: 0; 
+}
+@media (max-width: 768px){
+
+    .page-wrapper { display: flex; 
+        flex-direction: column; 
+        height: auto; 
+    }
+    section { 
+        display: none; 
+    }
+    .form-section, form { 
+        padding-left: 20px; 
+        padding-right: 20px; 
+    }
+}
